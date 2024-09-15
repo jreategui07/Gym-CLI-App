@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2BF6FAE12C979A47000CA31E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAE02C979A47000CA31E /* main.swift */; };
+		2BF6FAEB2C979C91000CA31E /* IsPurchasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */; };
+		2BF6FAED2C979CDC000CA31E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEC2C979CDC000CA31E /* Service.swift */; };
+		2BF6FAEF2C979CF8000CA31E /* FitnessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */; };
+		2BF6FAF12C979D15000CA31E /* PersonalTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */; };
+		2BF6FAF32C979D35000CA31E /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF22C979D35000CA31E /* Member.swift */; };
+		2BF6FAF52C979D9D000CA31E /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF42C979D9D000CA31E /* Gym.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		2BF6FADD2C979A47000CA31E /* Group04_Gym */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Group04_Gym; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF6FAE02C979A47000CA31E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPurchasable.swift; sourceTree = "<group>"; };
+		2BF6FAEC2C979CDC000CA31E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClass.swift; sourceTree = "<group>"; };
+		2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTraining.swift; sourceTree = "<group>"; };
+		2BF6FAF22C979D35000CA31E /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		2BF6FAF42C979D9D000CA31E /* Gym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +69,31 @@
 		2BF6FADF2C979A47000CA31E /* Group04_Gym */ = {
 			isa = PBXGroup;
 			children = (
+				2BF6FAE92C979C71000CA31E /* protocols */,
+				2BF6FAE82C979C4B000CA31E /* models */,
 				2BF6FAE02C979A47000CA31E /* main.swift */,
 			);
 			path = Group04_Gym;
+			sourceTree = "<group>";
+		};
+		2BF6FAE82C979C4B000CA31E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				2BF6FAEC2C979CDC000CA31E /* Service.swift */,
+				2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */,
+				2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */,
+				2BF6FAF22C979D35000CA31E /* Member.swift */,
+				2BF6FAF42C979D9D000CA31E /* Gym.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		2BF6FAE92C979C71000CA31E /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */,
+			);
+			path = protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +154,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF6FAEB2C979C91000CA31E /* IsPurchasable.swift in Sources */,
+				2BF6FAF32C979D35000CA31E /* Member.swift in Sources */,
+				2BF6FAF12C979D15000CA31E /* PersonalTraining.swift in Sources */,
 				2BF6FAE12C979A47000CA31E /* main.swift in Sources */,
+				2BF6FAF52C979D9D000CA31E /* Gym.swift in Sources */,
+				2BF6FAED2C979CDC000CA31E /* Service.swift in Sources */,
+				2BF6FAEF2C979CF8000CA31E /* FitnessClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

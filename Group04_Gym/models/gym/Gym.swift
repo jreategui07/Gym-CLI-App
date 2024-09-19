@@ -4,22 +4,81 @@
 //
 
 class Gym {
+    var owners: [GymOwner] = []
     var members: [GymMember] = []
     var services: [Service] = []
+    
+    // owner methods
+    
+    func addOwner(_ owner: GymOwner) {
+        owners.append(owner)
+    }
+    
+    func findOwner(ownerId: String) -> GymOwner? {
+        return owners.first(where: { $0.id == ownerId })
+    }
+    
+    func createOwner(_ owner: GymOwner) {
+        owners.append(owner)
+    }
+
+    func listAllOwners() {
+        if owners.isEmpty {
+            print("There are no owners for this gym.")
+            return
+        }
+        print("Owners of the gym:")
+        for owner in owners {
+            print(owner.name)
+        }
+    }
+    
+    // member methods
     
     func addMember(_ member: GymMember) {
         members.append(member)
     }
 
-    func findMember(menberId: String) -> GymMember? {
-        return members.first(where: { $0.id == menberId })
+    func findMember(memberId: String) -> GymMember? {
+        return members.first(where: { $0.id == memberId })
+    }
+    
+    func createMember(_ member: GymMember) {
+        members.append(member)
+    }
+    
+    func listAllMembers() {
+        if members.isEmpty {
+            print("There are no registered members.")
+            return
+        }
+        for member in members {
+            print(member.name)
+        }
+    }
+    
+    func searchMember(_ memberName: String) {
+        let results = members.filter { $0.name.contains(memberName) }
+        if results.isEmpty {
+            print("No member found with the keyword '\(memberName)'.")
+            return
+        }
+        for member in results {
+            print(member.name)
+        }
+    }
+    
+    // service methods
+    
+    func addService(_ service: Service) {
+        services.append(service)
     }
     
     func findService(serviceId: String) -> Service? {
         return services.first(where: { $0.id == serviceId })
     }
     
-    func createNewService(_ service: Service) {
+    func createwService(_ service: Service) {
         services.append(service)
     }
     
@@ -30,16 +89,6 @@ class Gym {
         }
         for service in services {
             print(service.serviceDescription)
-        }
-    }
-    
-    func listAllMembers() {
-        if members.isEmpty {
-            print("There are no registered members.")
-            return
-        }
-        for member in members {
-            print(member.name)
         }
     }
 

@@ -15,7 +15,7 @@ class GymOwner: User {
     
     func createService(name: String, totalSessions: Int, price: Double) {
         let newService = Service(id: UUID().uuidString, name: name, totalNumberOfSessions: totalSessions, price: price)
-        gym.createNewService(newService)
+        gym.createwService(newService)
         print("Service \(name) created by \(self.name).")
     }
     

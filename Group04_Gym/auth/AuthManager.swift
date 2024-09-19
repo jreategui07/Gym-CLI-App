@@ -49,7 +49,7 @@ class AuthManager {
             return nil
         }
 
-        if let member = owner.gym.findMember(menberId: memberId) {
+        if let member = owner.gym.findMember(memberId: memberId) {
             currentMember = member
             print("Member \(member.name) signed in successfully.")
             return member

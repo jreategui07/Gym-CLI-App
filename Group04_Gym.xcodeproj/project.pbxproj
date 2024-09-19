@@ -11,7 +11,6 @@
 		2B5A7C402C9B9B0800F9D578 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A7C3F2C9B9B0800F9D578 /* User.swift */; };
 		2B5A7C422C9B9B3800F9D578 /* GymOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A7C412C9B9B3800F9D578 /* GymOwner.swift */; };
 		2BCA69742C9953E300EACCF0 /* ServiceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA69732C9953E300EACCF0 /* ServiceStatus.swift */; };
-		2BCA69762C9957D500EACCF0 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA69752C9957D500EACCF0 /* Menu.swift */; };
 		2BF6FAE12C979A47000CA31E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAE02C979A47000CA31E /* main.swift */; };
 		2BF6FAEB2C979C91000CA31E /* IsPurchasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */; };
 		2BF6FAED2C979CDC000CA31E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEC2C979CDC000CA31E /* Service.swift */; };
@@ -38,7 +37,6 @@
 		2B5A7C3F2C9B9B0800F9D578 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B5A7C412C9B9B3800F9D578 /* GymOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymOwner.swift; sourceTree = "<group>"; };
 		2BCA69732C9953E300EACCF0 /* ServiceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatus.swift; sourceTree = "<group>"; };
-		2BCA69752C9957D500EACCF0 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2BF6FADD2C979A47000CA31E /* Group04_Gym */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Group04_Gym; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF6FAE02C979A47000CA31E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPurchasable.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		2BF6FAD42C979A47000CA31E = {
 			isa = PBXGroup;
 			children = (
-				2BCA69752C9957D500EACCF0 /* Menu.swift */,
 				2BF6FADF2C979A47000CA31E /* Group04_Gym */,
 				2BF6FADE2C979A47000CA31E /* Products */,
 			);
@@ -216,7 +213,6 @@
 				2BF6FAF12C979D15000CA31E /* PersonalTraining.swift in Sources */,
 				2BF6FAE12C979A47000CA31E /* main.swift in Sources */,
 				2BF6FAF52C979D9D000CA31E /* Gym.swift in Sources */,
-				2BCA69762C9957D500EACCF0 /* Menu.swift in Sources */,
 				2BF6FAED2C979CDC000CA31E /* Service.swift in Sources */,
 				2BF6FAEF2C979CF8000CA31E /* FitnessClass.swift in Sources */,
 				2B5A7C3E2C9B99B500F9D578 /* AuthManager.swift in Sources */,

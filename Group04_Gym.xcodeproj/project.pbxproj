@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B5A7C3E2C9B99B500F9D578 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A7C3D2C9B99B500F9D578 /* AuthManager.swift */; };
+		2B5A7C402C9B9B0800F9D578 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A7C3F2C9B9B0800F9D578 /* User.swift */; };
+		2B5A7C422C9B9B3800F9D578 /* GymOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A7C412C9B9B3800F9D578 /* GymOwner.swift */; };
+		2BCA69742C9953E300EACCF0 /* ServiceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA69732C9953E300EACCF0 /* ServiceStatus.swift */; };
+		2BCA69762C9957D500EACCF0 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA69752C9957D500EACCF0 /* Menu.swift */; };
 		2BF6FAE12C979A47000CA31E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAE02C979A47000CA31E /* main.swift */; };
 		2BF6FAEB2C979C91000CA31E /* IsPurchasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */; };
 		2BF6FAED2C979CDC000CA31E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEC2C979CDC000CA31E /* Service.swift */; };
 		2BF6FAEF2C979CF8000CA31E /* FitnessClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */; };
 		2BF6FAF12C979D15000CA31E /* PersonalTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */; };
-		2BF6FAF32C979D35000CA31E /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF22C979D35000CA31E /* Member.swift */; };
+		2BF6FAF32C979D35000CA31E /* GymMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF22C979D35000CA31E /* GymMember.swift */; };
 		2BF6FAF52C979D9D000CA31E /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF6FAF42C979D9D000CA31E /* Gym.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,13 +34,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B5A7C3D2C9B99B500F9D578 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		2B5A7C3F2C9B9B0800F9D578 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2B5A7C412C9B9B3800F9D578 /* GymOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymOwner.swift; sourceTree = "<group>"; };
+		2BCA69732C9953E300EACCF0 /* ServiceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatus.swift; sourceTree = "<group>"; };
+		2BCA69752C9957D500EACCF0 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		2BF6FADD2C979A47000CA31E /* Group04_Gym */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Group04_Gym; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BF6FAE02C979A47000CA31E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2BF6FAEA2C979C91000CA31E /* IsPurchasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsPurchasable.swift; sourceTree = "<group>"; };
 		2BF6FAEC2C979CDC000CA31E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessClass.swift; sourceTree = "<group>"; };
 		2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTraining.swift; sourceTree = "<group>"; };
-		2BF6FAF22C979D35000CA31E /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		2BF6FAF22C979D35000CA31E /* GymMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymMember.swift; sourceTree = "<group>"; };
 		2BF6FAF42C979D9D000CA31E /* Gym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,9 +60,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B5A7C3C2C9B999B00F9D578 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				2B5A7C3D2C9B99B500F9D578 /* AuthManager.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		2B5A7C432C9B9B5A00F9D578 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				2B5A7C3F2C9B9B0800F9D578 /* User.swift */,
+				2B5A7C412C9B9B3800F9D578 /* GymOwner.swift */,
+				2BF6FAF22C979D35000CA31E /* GymMember.swift */,
+			);
+			path = user;
+			sourceTree = "<group>";
+		};
+		2B5A7C442C9B9B7700F9D578 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				2BF6FAEC2C979CDC000CA31E /* Service.swift */,
+				2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */,
+				2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		2B5A7C452C9BA63000F9D578 /* gym */ = {
+			isa = PBXGroup;
+			children = (
+				2BF6FAF42C979D9D000CA31E /* Gym.swift */,
+			);
+			path = gym;
+			sourceTree = "<group>";
+		};
+		2BCA69722C9953C900EACCF0 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				2BCA69732C9953E300EACCF0 /* ServiceStatus.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		2BF6FAD42C979A47000CA31E = {
 			isa = PBXGroup;
 			children = (
+				2BCA69752C9957D500EACCF0 /* Menu.swift */,
 				2BF6FADF2C979A47000CA31E /* Group04_Gym */,
 				2BF6FADE2C979A47000CA31E /* Products */,
 			);
@@ -69,6 +124,8 @@
 		2BF6FADF2C979A47000CA31E /* Group04_Gym */ = {
 			isa = PBXGroup;
 			children = (
+				2B5A7C3C2C9B999B00F9D578 /* auth */,
+				2BCA69722C9953C900EACCF0 /* utils */,
 				2BF6FAE92C979C71000CA31E /* protocols */,
 				2BF6FAE82C979C4B000CA31E /* models */,
 				2BF6FAE02C979A47000CA31E /* main.swift */,
@@ -79,11 +136,9 @@
 		2BF6FAE82C979C4B000CA31E /* models */ = {
 			isa = PBXGroup;
 			children = (
-				2BF6FAEC2C979CDC000CA31E /* Service.swift */,
-				2BF6FAEE2C979CF8000CA31E /* FitnessClass.swift */,
-				2BF6FAF02C979D15000CA31E /* PersonalTraining.swift */,
-				2BF6FAF22C979D35000CA31E /* Member.swift */,
-				2BF6FAF42C979D9D000CA31E /* Gym.swift */,
+				2B5A7C452C9BA63000F9D578 /* gym */,
+				2B5A7C432C9B9B5A00F9D578 /* user */,
+				2B5A7C442C9B9B7700F9D578 /* service */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -155,12 +210,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF6FAEB2C979C91000CA31E /* IsPurchasable.swift in Sources */,
-				2BF6FAF32C979D35000CA31E /* Member.swift in Sources */,
+				2B5A7C422C9B9B3800F9D578 /* GymOwner.swift in Sources */,
+				2BF6FAF32C979D35000CA31E /* GymMember.swift in Sources */,
+				2BCA69742C9953E300EACCF0 /* ServiceStatus.swift in Sources */,
 				2BF6FAF12C979D15000CA31E /* PersonalTraining.swift in Sources */,
 				2BF6FAE12C979A47000CA31E /* main.swift in Sources */,
 				2BF6FAF52C979D9D000CA31E /* Gym.swift in Sources */,
+				2BCA69762C9957D500EACCF0 /* Menu.swift in Sources */,
 				2BF6FAED2C979CDC000CA31E /* Service.swift in Sources */,
 				2BF6FAEF2C979CF8000CA31E /* FitnessClass.swift in Sources */,
+				2B5A7C3E2C9B99B500F9D578 /* AuthManager.swift in Sources */,
+				2B5A7C402C9B9B0800F9D578 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

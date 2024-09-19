@@ -7,13 +7,15 @@ class Service: IsPurchasable {
     var id: String
     var name: String
     var totalNumberOfSessions: Int
-    var price: Int // Price is acording to the Servi Type?
+    var price: Double
+    var status: ServiceStatus
     
-    init(id: String, name: String, totalNumberOfSessions: Int, price: Int) {
+    init(id: String, name: String, totalNumberOfSessions: Int, price: Double) {
         self.id = id
         self.name = name
         self.totalNumberOfSessions = totalNumberOfSessions
         self.price = price
+        self.status = .available
     }
     
     var serviceDescription: String{

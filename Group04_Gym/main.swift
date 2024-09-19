@@ -15,7 +15,7 @@ func main() {
         print("2. Sign in")
         print("3. Log out")
         print("0. Exit")
-        print("Enter your choice: ", terminator: "")
+        print("Enter your choice: ")
         
         if let choice = readLine(), let option = Int(choice) {
             switch option {
@@ -27,12 +27,12 @@ func main() {
                 print("\n--- Sign Up ---")
                 print("1. Gym owner")
                 print("2. Gym member")
-                print("Enter your choice: ", terminator: "")
+                print("Enter your choice: ")
                 
                 if let signUpChoice = readLine(), let signUpOption = Int(signUpChoice) {
                     switch signUpOption {
                     case 1:
-                        print("Enter gym owner name: ", terminator: "")
+                        print("Enter gym owner name: ")
                         if let ownerName = readLine() {
                             authManager.signUpGymOwner(name: ownerName)
                         }
@@ -42,7 +42,7 @@ func main() {
 //                            print("No gym owner exists. Please sign up a gym owner first.")
 //                            break
 //                        }
-//                        print("Enter member name: ", terminator: "")
+//                        print("Enter member name: ")
 //                        if let memberName = readLine() {
 //                            authManager.signUpMember(name: memberName)
 //                        }
@@ -55,19 +55,19 @@ func main() {
                 print("\n--- Sign In ---")
                 print("1. Gym owner")
                 print("2. Gym member")
-                print("Enter your choice: ", terminator: "")
+                print("Enter your choice: ")
                 
                 if let signInChoice = readLine(), let signInOption = Int(signInChoice) {
                     switch signInOption {
                     case 1:
-                        print("Enter gym owner name: ", terminator: "")
+                        print("Enter gym owner name: ")
                         if let ownerName = readLine() {
                             if let gymOwner = authManager.signInGymOwner(name: ownerName) {
                                 ownerMenu(gymOwner: gymOwner, authManager: authManager)
                             }
                         }
                     case 2:
-                        print("Enter member ID: ", terminator: "")
+                        print("Enter member ID: ")
                         if let memberId = readLine() {
                             if let gymMember = authManager.signInMember(memberId: memberId) {
                                 memberMenu(gymMember: gymMember, authManager: authManager)
@@ -96,7 +96,7 @@ func ownerMenu(gymOwner: GymOwner, authManager: AuthManager) {
         print("3. List all members")
         // 4. SearchService by name?
         print("0. Log out as Gym Owner")
-        print("Enter your choice: ", terminator: "")
+        print("Enter your choice: ")
 
         if let ownerChoice = readLine(), let ownerOption = Int(ownerChoice) {
             switch ownerOption {
@@ -106,7 +106,7 @@ func ownerMenu(gymOwner: GymOwner, authManager: AuthManager) {
             case 1:
                 gymOwner.gym.listAllServices()
             case 2:
-//                print("Enter service name: ", terminator: "")
+//                print("Enter service name: ")
 //                if let serviceName = readLine() {
 //                    let newService = Service(id: UUID().uuidString, name: serviceName, totalNumberOfSessions: 5, price: 50.0, status: .available)
 //                    gymOwner.createService(name: newService)
@@ -115,20 +115,20 @@ func ownerMenu(gymOwner: GymOwner, authManager: AuthManager) {
                 print("\n--- Add Service ---")
                 print("1. Fitness Class")
                 print("2. Personal Training")
-                print("Enter your choice: ", terminator: "")
+                print("Enter your choice: ")
 
                 if let choice = readLine(), let option = Int(choice) {
                    switch option {
                    case 1:
-                       print("Enter service name: ", terminator: "")
+                       print("Enter service name: ")
                        let name = readLine() ?? "Unnamed Class"
-                       print("Enter total sessions: ", terminator: "")
+                       print("Enter total sessions: ")
                        let sessions = Int(readLine() ?? "0") ?? 0
-                       print("Enter price: ", terminator: "")
+                       print("Enter price: ")
                        let price = Double(readLine() ?? "0") ?? 0
-                       print("Enter duration: ", terminator: "")
+                       print("Enter duration: ")
                        let duration = Int(readLine() ?? "0") ?? 0
-                       print("Enter trainer name: ", terminator: "")
+                       print("Enter trainer name: ")
                        let trainer = readLine() ?? "Unknown Trainer"
                        
                        let fitnessClass = FitnessClass(
@@ -143,15 +143,15 @@ func ownerMenu(gymOwner: GymOwner, authManager: AuthManager) {
                        print("Fitness class added successfully.")
                        
                    case 2:
-                       print("Enter service name: ", terminator: "")
+                       print("Enter service name: ")
                        let name = readLine() ?? "Unnamed Training"
-                       print("Enter total sessions: ", terminator: "")
+                       print("Enter total sessions: ")
                        let sessions = Int(readLine() ?? "0") ?? 0
-                       print("Enter price: ", terminator: "")
+                       print("Enter price: ")
                        let price = Double(readLine() ?? "0") ?? 0
-                       print("Enter session time: ", terminator: "")
+                       print("Enter session time: ")
                        let sessionTime = Int(readLine() ?? "0") ?? 0
-                       print("Enter trainer name: ", terminator: "")
+                       print("Enter trainer name: ")
                        let trainer = readLine() ?? "Unknown Trainer"
                        
                        let personalTraining = PersonalTraining(
@@ -162,6 +162,8 @@ func ownerMenu(gymOwner: GymOwner, authManager: AuthManager) {
                            trainerName: trainer,
                            sessionTime: sessionTime
                        )
+                       // TODO: CHECK
+                       // authManager.gym // add service trougth authManager
                        // addService(personalTraining)
                        print("Personal training added successfully.")
                        
@@ -189,7 +191,7 @@ func memberMenu(gymMember: GymMember, authManager: AuthManager) {
         // 4. View Booked Services?
         // 5. Check Balance?
         print("0. Log out as Gym Member")
-        print("Enter your choice: ", terminator: "")
+        print("Enter your choice: ")
 
         if let memberChoice = readLine(), let memberOption = Int(memberChoice) {
             switch memberOption {
@@ -197,17 +199,17 @@ func memberMenu(gymMember: GymMember, authManager: AuthManager) {
                 memberContinue = false
                 authManager.logOutMember()
             case 1:
-                print("Enter keyword to search for a service: ", terminator: "")
+                print("Enter keyword to search for a service: ")
                 if let keyword = readLine() {
                     gymMember.searchServices(keyword: keyword)
                 }
             case 2:
-                print("Enter service ID to book: ", terminator: "")
+                print("Enter service ID to book: ")
 //                if let serviceId = readLine() {
 //                    gymMember.bookService(serviceId: serviceId)
 //                }
             case 3:
-                print("Enter service ID to cancel: ", terminator: "")
+                print("Enter service ID to cancel: ")
 //                if let serviceId = readLine() {
 //                    gymMember.cancelService(serviceId: serviceId)
 //                }

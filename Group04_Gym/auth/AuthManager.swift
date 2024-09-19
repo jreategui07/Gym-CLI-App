@@ -8,6 +8,7 @@ import Foundation
 class AuthManager {
     private var currentOwner: GymOwner?
     private var currentMember: GymMember?
+    private var gym: Gym?
 
     func signUpGymOwner(name: String) {
         if currentOwner != nil {

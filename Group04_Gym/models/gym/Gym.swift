@@ -4,33 +4,14 @@
 //
 
 class Gym {
-    var owners: [GymOwner] = []
+    var owner: GymOwner?
     var members: [GymMember] = []
     var services: [Service] = []
     
     // owner methods
     
     func addOwner(_ owner: GymOwner) {
-        owners.append(owner)
-    }
-    
-    func findOwner(ownerId: String) -> GymOwner? {
-        return owners.first(where: { $0.id == ownerId })
-    }
-    
-    func createOwner(_ owner: GymOwner) {
-        owners.append(owner)
-    }
-
-    func listAllOwners() {
-        if owners.isEmpty {
-            print("There are no owners for this gym.")
-            return
-        }
-        print("Owners of the gym:")
-        for owner in owners {
-            print(owner.name)
-        }
+        self.owner = owner
     }
     
     // member methods
@@ -84,7 +65,7 @@ class Gym {
     
     func listAllServices() {
         if services.isEmpty {
-            print("There are noservices available.")
+            print("There are no services available.")
             return
         }
         for service in services {

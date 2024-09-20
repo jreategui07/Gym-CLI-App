@@ -146,19 +146,12 @@ func main() {
                     print("Member with ID \(memberId) not found.")
                 }
             case 6:
-                print("Enter the service ID: ", terminator: "")
-                guard let serviceId = readLine(), !serviceId.isEmpty else {
-                   print("Invalid Service ID. Please try again.")
+                print("Enter the service name keywork: ", terminator: "")
+                guard let serviceNameKeyword = readLine(), !serviceNameKeyword.isEmpty else {
+                   print("Invalid value. Please try again.")
                    break
                 }
-                
-                if let service = gym.findService(serviceId: serviceId) {
-                    print("Service found. See details below")
-                    print(service.serviceDescription)
-                } else {
-                    print("Service with ID \(serviceId) not found.")
-                }
-                
+                gym.searchService(serviceNameKeyword)
             default:
                 print("Invalid option. Please try again.")
             }

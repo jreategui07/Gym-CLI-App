@@ -24,8 +24,12 @@ class Service: IsPurchasable {
         return "ID: \(self.id), Name: \(self.name), Number of sessions: \(self.totalNumberOfSessions), Price: \(self.price) "
     }
     
-    func showReceipt(serviceStatus: String) {
-        print("Receipt Details:")
-        print("Service: \(self.name) (\(serviceStatus.uppercased())), Price: \(self.price) credits")
+    func showReceipt() {
+        print("""
+        Your receipt
+        Service: \(self.name)
+        Price: \(self.price) credits
+        Status: \(self.status.rawValue.uppercased())
+        """)
     }
 }

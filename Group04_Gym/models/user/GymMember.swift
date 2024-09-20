@@ -57,7 +57,7 @@ class GymMember {
             creditBalance -= service.price // The cost of the service is deducted from their balance
             bookedServices.append(service) // The service is added to the list of services the member has booked
             print("Service \(service.name) booked successfully for \(name).")
-            service.showReceipt(serviceStatus: service.status.rawValue)
+            service.showReceipt()
             print("Your new balance is: \(creditBalance)")
         } else {
             print("Service not found.")
@@ -91,9 +91,13 @@ class GymMember {
             }
             
             // Successful scenario – member has not attended any sessions for the service and exist in the purchased list
-            bookedServices[index].status = .cancelled
-            creditBalance += service.price
+            // If a cancellation is accepted
+            creditBalance += service.price // the original cost of the service is refunded to the member's credit balance
             print("Service \(service.name) for member \(name) has been cancelled. \(service.price) credits have been refunded.")
+            service.showReceipt()
+            print("Your new balance is: \(creditBalance)")
+            bookedServices.remove(at: index) // The service is removed from their list of booked services.
+            print("Service \(service.name) has been removed from your booked services.")
         } else {
             print("Service not found in \(name)'s booked services.")
         }

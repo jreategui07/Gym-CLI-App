@@ -18,7 +18,7 @@ class Service: IsPurchasable {
         self.status = .available
     }
     
-    var serviceDescription: String{
+    var serviceDescription: String {
         return "Service desription \n ID: \(self.id), Name: \(self.name), Total number of sessions: \(self.totalNumberOfSessions), Price: \(self.price) "
     }
     

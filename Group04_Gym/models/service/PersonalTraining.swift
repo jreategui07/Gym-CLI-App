@@ -13,7 +13,7 @@ class PersonalTraining: Service {
         super.init(id: id, name: name, totalNumberOfSessions: totalNumberOfSessions, price: price)
     }
     
-    override var serviceDescription: String{
+    override var serviceDescription: String {
         return super.serviceDescription + ", trainerName Name: \(trainerName)"
     }
 }

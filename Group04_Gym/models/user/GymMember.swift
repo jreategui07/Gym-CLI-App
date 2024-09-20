@@ -33,6 +33,12 @@ class GymMember {
     
     func bookService(serviceId: String, gym: Gym) {
         if let service = gym.findService(serviceId: serviceId) {
+            // Use the total number of sessions for a service and number of sessions attended to identify if the service has been completed before
+            if service.numberOfSessionsAttended >= service.totalNumberOfSessions {
+                print("The service \(service.name) has already been completed and cannot be booked again.")
+                return
+            }
+            
             // The same service cannot be booked twice by the member unless it has been completed or canceled
             if let bookedService = bookedServices.first(where: { $0.id == serviceId }) {
                 if bookedService.status != .completed && bookedService.status != .cancelled {
@@ -101,6 +107,7 @@ class GymMember {
                 print("Session marked as attended for \(service.name). Total attended sessions: \(service.numberOfSessionsAttended)")
                 // If member is attending the last session of the service, show a message congratulating them on completing the service.
                 if service.numberOfSessionsAttended == service.totalNumberOfSessions {
+                    service.status = .completed
                     print("Congratulations! You have completed all sessions for \(service.name).")
                 }
             } else {

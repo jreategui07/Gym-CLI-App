@@ -94,10 +94,15 @@ class GymMember {
     }
 
     func markSessionAsAttended(serviceId: String) {
+        // For any service that Gym member has booked, they can attend the sessions and mark its attendance.
         if let service = bookedServices.first(where: { $0.id == serviceId }) {
             if service.numberOfSessionsAttended < service.totalNumberOfSessions {
-                service.numberOfSessionsAttended += 1
+                service.numberOfSessionsAttended += 1 // App should maintain how many sessions member has attended.
                 print("Session marked as attended for \(service.name). Total attended sessions: \(service.numberOfSessionsAttended)")
+                // If member is attending the last session of the service, show a message congratulating them on completing the service.
+                if service.numberOfSessionsAttended == service.totalNumberOfSessions {
+                    print("Congratulations! You have completed all sessions for \(service.name).")
+                }
             } else {
                 print("All sessions for \(service.name) have already been attended.")
             }

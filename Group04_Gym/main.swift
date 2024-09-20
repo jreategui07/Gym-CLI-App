@@ -5,51 +5,20 @@
 
 import Foundation
 
-func main() {
-    let gym = Gym()
-    
-    // Your code may already have some service sessions using hard-coded data in the list.
-    let fitnessClass1 = FitnessClass(id: UUID().uuidString, name: "Morning Yoga", totalNumberOfSessions: 3, price: 25.0, trainerName: "Alice", duration: 60)
-    let fitnessClass2 = FitnessClass(id: UUID().uuidString, name: "Zumba", totalNumberOfSessions: 8, price: 15.0, trainerName: "Bob", duration: 50)
-    let fitnessClass3 = FitnessClass(id: UUID().uuidString, name: "Pilates", totalNumberOfSessions: 12, price: 20.0, trainerName: "Carol", duration: 55)
-    let personalTraining1 = PersonalTraining(id: UUID().uuidString, name: "Weight Training", totalNumberOfSessions: 5, price: 20.0, trainerName: "David", sessionTime: 45)
-    let personalTraining2 = PersonalTraining(id: UUID().uuidString, name: "HIIT", totalNumberOfSessions: 6, price: 25.0, trainerName: "Eva", sessionTime: 40)
-    let personalTraining3 = PersonalTraining(id: UUID().uuidString, name: "CrossFit", totalNumberOfSessions: 7, price: 90.0, trainerName: "Frank", sessionTime: 60)
-    gym.addService(fitnessClass1)
-    gym.addService(fitnessClass2)
-    gym.addService(fitnessClass3)
-    gym.addService(personalTraining1)
-    gym.addService(personalTraining2)
-    gym.addService(personalTraining3)
-    
-    // Creating test members using hard-coded data
-    let member1 = GymMember(id: UUID().uuidString, name: "Jhon")
-    let member2 = GymMember(id: UUID().uuidString, name: "Jane")
-    let member3 = GymMember(id: UUID().uuidString, name: "Bob")
-    gym.addMember(member1)
-    gym.addMember(member2)
-    gym.addMember(member3)
-
-    var shouldContinue = true
-    while shouldContinue {
-        print("\n--- Welcome to Gym Management System ---")
-        print("1. Create a new service (admin)")
-        print("2. Search service by keyword (admin)")
-        print("3. List all services (admin)")
-        print("4. Create a gym member account (member)")
-        print("5. Reload credit points (member)")
-        print("6. Search for service (member)")
-        print("7. Purchase service (member)")
-        print("8. Mark the session as attended (member)")
-        print("9. Cancel the service (member)")
+func gymOwnerMenuOptions(gym: Gym) {
+    var shouldContinueAsGymOwner = true
+    while shouldContinueAsGymOwner {
+        print("\n--- Gym Owner (admin) options ---")
+        print("1. Create a new service")
+        print("2. Search service by keyword")
+        print("3. List all services")
         print("0. Exit")
         print("Enter your choice: ", terminator: "")
-        
         if let choice = readLine(), let option = Int(choice) {
             switch option {
             case 0:
-                shouldContinue = false
-                print("Exiting the Gym Management System.")
+                shouldContinueAsGymOwner = false
+                print("Exiting from the Gym Owner account.")
             case 1:
                 print("Select service type")
                 print("1. Fitness class")
@@ -129,7 +98,31 @@ func main() {
                 gym.searchService(serviceNameKeyword)
             case 3:
                 gym.listAllServices()
-            case 4:
+            default:
+                print("Invalid option. Please try again.")
+            }
+        }
+    }
+}
+
+func gymMemberMenuOptions(gym: Gym) {
+    var shouldContinueAsGymMember = true
+    while shouldContinueAsGymMember {
+        print("\n--- Gym Member options ---")
+        print("1. Create a gym member account (member)")
+        print("2. Reload credit points (member)")
+        print("3. Search for service (member)")
+        print("4. Purchase service (member)")
+        print("5. Mark the session as attended (member)")
+        print("6. Cancel the service (member)")
+        print("0. Exit")
+        print("Enter your choice: ", terminator: "")
+        if let choice = readLine(), let option = Int(choice) {
+            switch option {
+            case 0:
+                shouldContinueAsGymMember = false
+                print("Exiting from the Gym Member account.")
+            case 1:
                 print("Enter your username create your account: ", terminator: "")
                 if let memberName = readLine() {
                     let newMember = GymMember(
@@ -139,7 +132,7 @@ func main() {
                     gym.addMember(newMember)
                     print("Member \(newMember.name) successfully created with ID \(newMember.id).")
                 }
-            case 5:
+            case 2:
                 print("Enter your member ID: ", terminator: "")
                 guard let memberId = readLine(), !memberId.isEmpty else {
                    print("Invalid Member ID. Please try again.")
@@ -156,14 +149,14 @@ func main() {
                 } else {
                     print("Member with ID \(memberId) not found.")
                 }
-            case 6:
+            case 3:
                 print("Enter the service name keywork: ", terminator: "")
                 guard let serviceNameKeyword = readLine(), !serviceNameKeyword.isEmpty else {
                    print("Invalid value. Please try again.")
                    break
                 }
                 gym.searchService(serviceNameKeyword)
-            case 7:
+            case 4:
                 print("Enter your member ID: ", terminator: "")
                 guard let memberId = readLine(), !memberId.isEmpty else {
                    print("Invalid Member ID. Please try again.")
@@ -177,7 +170,7 @@ func main() {
                 } else {
                     print("Member with ID \(memberId) not found.")
                 }
-            case 8:
+            case 5:
                 print("Enter your member ID: ", terminator: "")
                 guard let memberId = readLine(), !memberId.isEmpty else {
                    print("Invalid Member ID. Please try again.")
@@ -193,7 +186,7 @@ func main() {
                 } else {
                     print("Member with ID \(memberId) not found.")
                 }
-            case 9:
+            case 6:
                 print("Enter your member ID: ", terminator: "")
                 guard let memberId = readLine(), !memberId.isEmpty else {
                    print("Invalid Member ID. Please try again.")
@@ -207,6 +200,54 @@ func main() {
                 } else {
                     print("Member with ID \(memberId) not found.")
                 }
+            default:
+                print("Invalid option. Please try again.")
+            }
+        }
+    }
+}
+
+func main() {
+    let gym = Gym()
+    
+    // Your code may already have some service sessions using hard-coded data in the list.
+    let fitnessClass1 = FitnessClass(id: UUID().uuidString, name: "Morning Yoga", totalNumberOfSessions: 3, price: 25.0, trainerName: "Alice", duration: 60)
+    let fitnessClass2 = FitnessClass(id: UUID().uuidString, name: "Zumba", totalNumberOfSessions: 8, price: 15.0, trainerName: "Bob", duration: 50)
+    let fitnessClass3 = FitnessClass(id: UUID().uuidString, name: "Pilates", totalNumberOfSessions: 12, price: 20.0, trainerName: "Carol", duration: 55)
+    let personalTraining1 = PersonalTraining(id: UUID().uuidString, name: "Weight Training", totalNumberOfSessions: 5, price: 20.0, trainerName: "David", sessionTime: 45)
+    let personalTraining2 = PersonalTraining(id: UUID().uuidString, name: "HIIT", totalNumberOfSessions: 6, price: 25.0, trainerName: "Eva", sessionTime: 40)
+    let personalTraining3 = PersonalTraining(id: UUID().uuidString, name: "CrossFit", totalNumberOfSessions: 7, price: 90.0, trainerName: "Frank", sessionTime: 60)
+    gym.addService(fitnessClass1)
+    gym.addService(fitnessClass2)
+    gym.addService(fitnessClass3)
+    gym.addService(personalTraining1)
+    gym.addService(personalTraining2)
+    gym.addService(personalTraining3)
+    
+    // Creating test members using hard-coded data
+    let member1 = GymMember(id: UUID().uuidString, name: "Jhon")
+    let member2 = GymMember(id: UUID().uuidString, name: "Jane")
+    let member3 = GymMember(id: UUID().uuidString, name: "Bob")
+    gym.addMember(member1)
+    gym.addMember(member2)
+    gym.addMember(member3)
+
+    var shouldContinue = true
+    while shouldContinue {
+        print("\n--- Welcome to Gym Management System ---")
+        print("1. Enter as Gym Owner (admin)")
+        print("2. Enter as Gym Member")
+        print("0. Exit")
+        print("Enter your choice: ", terminator: "")
+        if let userTypeChoice = readLine(), let userType = Int(userTypeChoice) {
+            switch userType {
+            case 0:
+                shouldContinue = false
+                print("Exiting the Gym Management System.")
+            case 1:
+                gymOwnerMenuOptions(gym: gym)
+            case 2:
+                gymMemberMenuOptions(gym: gym)
             default:
                 print("Invalid option. Please try again.")
             }

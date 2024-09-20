@@ -73,7 +73,7 @@ class GymMember {
                 return
             }
             
-            if service.status != .cancelled {
+            if service.status == .cancelled {
                 print("Service \(service.name) has already been cancelled.")
                 return
             }
@@ -92,6 +92,7 @@ class GymMember {
             
             // Successful scenario – member has not attended any sessions for the service and exist in the purchased list
             // If a cancellation is accepted
+            service.status = .cancelled
             creditBalance += service.price // the original cost of the service is refunded to the member's credit balance
             print("Service \(service.name) for member \(name) has been cancelled. \(service.price) credits have been refunded.")
             service.showReceipt()

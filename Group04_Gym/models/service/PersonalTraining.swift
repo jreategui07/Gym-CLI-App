@@ -5,7 +5,7 @@
 
 class PersonalTraining: Service {
     var trainerName: String
-    var sessionTime: Int // TODO: ask the professor if sessinTime is the duration of the class or the appoitment time
+    var sessionTime: Int
     
     init(id: String, name: String, totalNumberOfSessions: Int, price: Double, trainerName: String, sessionTime: Int) {
         self.trainerName = trainerName

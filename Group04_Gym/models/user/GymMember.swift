@@ -126,9 +126,6 @@ class GymMember {
         self.creditBalance += points
     }
     
-    func searchServices(keyword: String) {
-        // TODO: ...
-    }
     
     func viewBookedServices() {
         if bookedServices.isEmpty{
@@ -139,9 +136,5 @@ class GymMember {
                 print(service.serviceDescription)
             }
         }
-    }
-    
-    func checkBalance() {
-        // TODO: check balance logic
     }
 }

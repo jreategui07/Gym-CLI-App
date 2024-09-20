@@ -4,17 +4,8 @@
 //
 
 class Gym {
-    var owner: GymOwner?
     var members: [GymMember] = []
     var services: [Service] = []
-    
-    // owner methods
-    
-    func addOwner(_ owner: GymOwner) {
-        self.owner = owner
-    }
-    
-    // member methods
     
     func addMember(_ member: GymMember) {
         members.append(member)

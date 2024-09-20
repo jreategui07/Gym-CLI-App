@@ -3,9 +3,9 @@
 //  Group04_Gym
 //
 
-enum ServiceStatus {
-    case available
-    case booked
-    case completed
-    case cancelled
+enum ServiceStatus: String {
+    case available = "Available"
+    case booked = "Booked"
+    case completed = "Completed"
+    case cancelled = "Cancelled"
 }

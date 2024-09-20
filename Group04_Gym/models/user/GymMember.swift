@@ -5,48 +5,69 @@
 
 import Foundation
 
-class GymMember: User {
+class GymMember {
+    var id: String
+    var name: String
     var creditBalance: Double
     var bookedServices: [Service] = []
     var numberOfSessionsAttended: Int // This will help in identifying if the service can be cancelled.
     
     init(id: String, name: String, creditBalance: Double = 100) {
+        self.id = id
+        self.name = name
         self.creditBalance = creditBalance
         self.numberOfSessionsAttended = 0
-        super.init(id: id, name: name)
     }
     
-    func createAccount() {
-     // TODO: ...
-    }
-    
-    func bookService(_ service: Service) {
-        // TODO: Booking method ensures that no service is booked twice unless completed or canceled
-        if (creditBalance < service.price) {
-            print("There is not sufficient funds/credits to book this service:  \(service.name)")
-            return
+    func signIn(memberId: String, gym: Gym) -> GymMember? {
+        if let member = gym.findMember(memberId: memberId) {
+            print("Member \(member.name) signed in successfully.")
+            return member
+        } else {
+            print("Member not found.")
+            return nil
         }
-        bookedServices.append(service)
-        creditBalance -= service.price
-        print("Service \(service.name) booked successfully for \(name).")
-        service.showReceipt(serviceType: "Booked") // check, service type is: FitnessClass / PersonalTraining. Booked / Cancelled / Completed is the status of the service
     }
     
-    func cancelService(serviceId: String, member: GymMember) {
-        if let index = member.bookedServices.firstIndex(where: { $0.id == serviceId }) {
-            let service = member.bookedServices[index]
+    func logOut() {
+        print("Member \(self.name) has logged out.")
+    }
+    
+    func bookService(serviceId: String, gym: Gym) {
+        if let service = gym.findService(serviceId: serviceId) {
+            if bookedServices.contains(where: { $0.id == serviceId }) {
+                print("You have already booked the service: \(service.name).")
+                return
+            }
+            
+            if creditBalance < service.price {
+                print("Insufficient credits to book the service: \(service.name).")
+                return
+            }
+            
+            bookedServices.append(service)
+            creditBalance -= service.price
+            print("Service \(service.name) booked successfully for \(name).")
+            service.showReceipt(serviceType: "Booked")
+        } else {
+            print("Service not found.")
+        }
+    }
+    
+    func cancelService(serviceId: String, gym: Gym) {
+        if let index = bookedServices.firstIndex(where: { $0.id == serviceId }) {
+            let service = bookedServices[index]
             
             if service.status == .completed {
                 print("Service \(service.name) has already been completed. No refunds available.")
                 return
             }
-
+            
             bookedServices[index].status = .cancelled
-            creditBalance += service.price // to refund
-            print("Service \(service.name) for member \(member.name) has been cancelled. \(service.price) credits have been refunded.")
-            // bookedServices.remove(at: index) // removing service from list
+            creditBalance += service.price
+            print("Service \(service.name) for member \(name) has been cancelled. \(service.price) credits have been refunded.")
         } else {
-            print("Service not found in \(member.name)'s booked services.")
+            print("Service not found in \(name)'s booked services.")
         }
     }
 

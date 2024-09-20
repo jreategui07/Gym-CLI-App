@@ -12,7 +12,7 @@ class GymMember {
     var bookedServices: [Service] = []
     var numberOfSessionsAttended: Int // This will help in identifying if the service can be cancelled.
     
-    init(id: String, name: String, creditBalance: Double = 100) {
+    init(id: String, name: String, creditBalance: Double = 100) { // Each account starts with 100 credit points, which can be reloaded at any time.
         self.id = id
         self.name = name
         self.creditBalance = creditBalance
@@ -35,18 +35,22 @@ class GymMember {
     
     func bookService(serviceId: String, gym: Gym) {
         if let service = gym.findService(serviceId: serviceId) {
-            if bookedServices.contains(where: { $0.id == serviceId }) {
-                print("You have already booked the service: \(service.name).")
-                return
+            // The same service cannot be booked twice by the member unless it has been completed or canceled
+            if let bookedService = bookedServices.first(where: { $0.id == serviceId }) {
+                if bookedService.status != .completed && bookedService.status != .cancelled {
+                    print("You have already booked the service: \(service.name). It must be completed or canceled before booking again.")
+                    return
+                }
             }
             
-            if creditBalance < service.price {
+            if creditBalance < service.price { // Services can only be booked if the member has enough credits in their account.
                 print("Insufficient credits to book the service: \(service.name).")
                 return
             }
             
-            bookedServices.append(service)
-            creditBalance -= service.price
+            // When a member books a service:
+            creditBalance -= service.price // The cost of the service is deducted from their balance
+            bookedServices.append(service) // The service is added to the list of services the member has booked
             print("Service \(service.name) booked successfully for \(name).")
             service.showReceipt(serviceType: "Booked")
         } else {

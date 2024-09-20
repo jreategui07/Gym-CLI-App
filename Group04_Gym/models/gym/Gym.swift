@@ -66,12 +66,13 @@ class Gym {
         }
     }
 
-    func searchService(_ keyword: String) {
+    func searchService(_ keyword: String) { // The gym membership system includes a search feature that allows users to find services by keyword
         let results = services.filter { $0.name.contains(keyword) }
         if results.isEmpty {
             print("No services found with the keyword '\(keyword)'.")
             return
         }
+        print("The following services where found for the keyword '\(keyword)'.")
         for service in results {
             print(service.serviceDescription)
         }

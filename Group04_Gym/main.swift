@@ -26,7 +26,7 @@ func main() {
     while shouldContinue {
         print("\n--- Welcome to Gym Management System ---")
         print("1. Create a new service (admin)")
-        print("2. Search service (admin)")
+        print("2. Search service by keyword (admin)")
         print("3. List all services (admin)")
         print("4. Create a gym member account (member)")
         print("5. Reload credit points (member)")
@@ -110,17 +110,12 @@ func main() {
                     }
                 }
             case 2:
-                print("Enter Service ID: ", terminator: "")
-                guard let serviceId = readLine(), !serviceId.isEmpty else {
-                   print("Invalid Service ID. Please try again.")
+                print("Enter the service name keywork: ", terminator: "")
+                guard let serviceNameKeyword = readLine(), !serviceNameKeyword.isEmpty else {
+                   print("Invalid value. Please try again.")
                    break
                 }
-                if let serviceFound = gym.findService(serviceId: serviceId) {
-                    print("Service found:")
-                    print(serviceFound.serviceDescription)
-                } else {
-                    print("Service with ID \(serviceId) not found.")
-                }
+                gym.searchService(serviceNameKeyword)
             case 3:
                 gym.listAllServices()
             case 4:

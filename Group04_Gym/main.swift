@@ -14,7 +14,7 @@ func main() {
     let fitnessClass3 = FitnessClass(id: UUID().uuidString, name: "Pilates", totalNumberOfSessions: 12, price: 20.0, trainerName: "Carol", duration: 55)
     let personalTraining1 = PersonalTraining(id: UUID().uuidString, name: "Weight Training", totalNumberOfSessions: 5, price: 20.0, trainerName: "David", sessionTime: 45)
     let personalTraining2 = PersonalTraining(id: UUID().uuidString, name: "HIIT", totalNumberOfSessions: 6, price: 25.0, trainerName: "Eva", sessionTime: 40)
-    let personalTraining3 = PersonalTraining(id: UUID().uuidString, name: "CrossFit", totalNumberOfSessions: 7, price: 30.0, trainerName: "Frank", sessionTime: 60)
+    let personalTraining3 = PersonalTraining(id: UUID().uuidString, name: "CrossFit", totalNumberOfSessions: 7, price: 90.0, trainerName: "Frank", sessionTime: 60)
     gym.addService(fitnessClass1)
     gym.addService(fitnessClass2)
     gym.addService(fitnessClass3)
@@ -173,8 +173,19 @@ func main() {
                 // print("8. Mark the session as attended (member)")
                 print()
             case 9:
-                // print("9. Cancel the service (member)")
-                print()
+                print("Enter your member ID: ", terminator: "")
+                guard let memberId = readLine(), !memberId.isEmpty else {
+                   print("Invalid Member ID. Please try again.")
+                   break
+                }
+                if let member = gym.findMember(memberId: memberId) {
+                    print("Enter service ID to cancel: ", terminator: "")
+                    if let serviceId = readLine() {
+                        member.cancelService(serviceId: serviceId, gym: gym)
+                    }
+                } else {
+                    print("Member with ID \(memberId) not found.")
+                }
             default:
                 print("Invalid option. Please try again.")
             }

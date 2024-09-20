@@ -49,10 +49,11 @@ class GymMember {
             }
             
             // When a member books a service:
+            service.status = .booked
             creditBalance -= service.price // The cost of the service is deducted from their balance
             bookedServices.append(service) // The service is added to the list of services the member has booked
             print("Service \(service.name) booked successfully for \(name).")
-            service.showReceipt(serviceStatus: "Booked")
+            service.showReceipt(serviceStatus: service.status.rawValue)
             print("Your new balance is: \(creditBalance)")
         } else {
             print("Service not found.")
@@ -68,6 +69,24 @@ class GymMember {
                 return
             }
             
+            if service.status != .cancelled {
+                print("Service \(service.name) has already been cancelled.")
+                return
+            }
+            
+            // Unsuccessful scenario - member has attended more than 1 sessions of the service
+            if numberOfSessionsAttended > 1 {
+                print("Cannot cancel the service: \(service.name). You have attended more than 1 session.")
+                return
+            }
+            
+            // Unsuccessful scenario - service doesn’t exist in the purchased list
+            if service.status != .booked {
+                print("Service \(service.name) is not currently booked and cannot be canceled.")
+                return
+            }
+            
+            // Successful scenario – member has not attended any sessions for the service and exist in the purchased list
             bookedServices[index].status = .cancelled
             creditBalance += service.price
             print("Service \(service.name) for member \(name) has been cancelled. \(service.price) credits have been refunded.")

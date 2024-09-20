@@ -170,8 +170,21 @@ func main() {
                     print("Member with ID \(memberId) not found.")
                 }
             case 8:
-                // print("8. Mark the session as attended (member)")
-                print()
+                print("Enter your member ID: ", terminator: "")
+                guard let memberId = readLine(), !memberId.isEmpty else {
+                   print("Invalid Member ID. Please try again.")
+                   break
+                }
+                if let member = gym.findMember(memberId: memberId) {
+                    print("Enter the service ID to mark as attended: ", terminator: "")
+                    guard let serviceId = readLine(), !serviceId.isEmpty else {
+                        print("Invalid Service ID. Please try again.")
+                        break
+                    }
+                    member.markSessionAsAttended(serviceId: serviceId)
+                } else {
+                    print("Member with ID \(memberId) not found.")
+                }
             case 9:
                 print("Enter your member ID: ", terminator: "")
                 guard let memberId = readLine(), !memberId.isEmpty else {

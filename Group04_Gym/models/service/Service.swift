@@ -9,6 +9,7 @@ class Service: IsPurchasable {
     var totalNumberOfSessions: Int
     var price: Double
     var status: ServiceStatus
+    var numberOfSessionsAttended: Int // This will help in identifying if the service can be cancelled.
     
     init(id: String, name: String, totalNumberOfSessions: Int, price: Double) {
         self.id = id
@@ -16,6 +17,7 @@ class Service: IsPurchasable {
         self.totalNumberOfSessions = totalNumberOfSessions
         self.price = price
         self.status = .available
+        self.numberOfSessionsAttended = 0
     }
     
     var serviceDescription: String {

@@ -10,13 +10,11 @@ class GymMember {
     var name: String
     var creditBalance: Double
     var bookedServices: [Service] = []
-    var numberOfSessionsAttended: Int // This will help in identifying if the service can be cancelled.
     
     init(id: String, name: String, creditBalance: Double = 100) { // Each account starts with 100 credit points, which can be reloaded at any time.
         self.id = id
         self.name = name
         self.creditBalance = creditBalance
-        self.numberOfSessionsAttended = 0
     }
     
     func signIn(memberId: String, gym: Gym) -> GymMember? {
@@ -75,7 +73,7 @@ class GymMember {
             }
             
             // Unsuccessful scenario - member has attended more than 1 sessions of the service
-            if numberOfSessionsAttended > 1 {
+            if service.numberOfSessionsAttended > 1 {
                 print("Cannot cancel the service: \(service.name). You have attended more than 1 session.")
                 return
             }
@@ -96,7 +94,16 @@ class GymMember {
     }
 
     func markSessionAsAttended(serviceId: String) {
-        // TODO: Has function markAttendance(id) that increases the number of attended sessions for the service represented by id in the parameter
+        if let service = bookedServices.first(where: { $0.id == serviceId }) {
+            if service.numberOfSessionsAttended < service.totalNumberOfSessions {
+                service.numberOfSessionsAttended += 1
+                print("Session marked as attended for \(service.name). Total attended sessions: \(service.numberOfSessionsAttended)")
+            } else {
+                print("All sessions for \(service.name) have already been attended.")
+            }
+        } else {
+            print("Service not found in your booked services.")
+        }
     }
     
     func reloadCreditPoints(points: Double) {

@@ -9,7 +9,7 @@ func main() {
     let gym = Gym()
     
     // Your code may already have some service sessions using hard-coded data in the list.
-    let fitnessClass1 = FitnessClass(id: UUID().uuidString, name: "Morning Yoga", totalNumberOfSessions: 10, price: 25.0, trainerName: "Alice", duration: 60)
+    let fitnessClass1 = FitnessClass(id: UUID().uuidString, name: "Morning Yoga", totalNumberOfSessions: 3, price: 25.0, trainerName: "Alice", duration: 60)
     let fitnessClass2 = FitnessClass(id: UUID().uuidString, name: "Zumba", totalNumberOfSessions: 8, price: 15.0, trainerName: "Bob", duration: 50)
     let fitnessClass3 = FitnessClass(id: UUID().uuidString, name: "Pilates", totalNumberOfSessions: 12, price: 20.0, trainerName: "Carol", duration: 55)
     let personalTraining1 = PersonalTraining(id: UUID().uuidString, name: "Weight Training", totalNumberOfSessions: 5, price: 20.0, trainerName: "David", sessionTime: 45)

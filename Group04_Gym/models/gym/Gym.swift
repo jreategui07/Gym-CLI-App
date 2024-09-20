@@ -7,6 +7,8 @@ class Gym {
     var members: [GymMember] = []
     var services: [Service] = []
     
+    // member methos
+    
     func addMember(_ member: GymMember) {
         members.append(member)
     }

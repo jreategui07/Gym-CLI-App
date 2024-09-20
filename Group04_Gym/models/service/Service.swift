@@ -19,7 +19,7 @@ class Service: IsPurchasable {
     }
     
     var serviceDescription: String {
-        return "Service desription \n ID: \(self.id), Name: \(self.name), Total number of sessions: \(self.totalNumberOfSessions), Price: \(self.price) "
+        return "ID: \(self.id), Name: \(self.name), Number of sessions: \(self.totalNumberOfSessions), Price: \(self.price) "
     }
     
     func showReceipt(serviceType: String) {

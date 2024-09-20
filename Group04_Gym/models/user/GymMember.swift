@@ -75,8 +75,8 @@ class GymMember {
         // TODO: Has function markAttendance(id) that increases the number of attended sessions for the service represented by id in the parameter
     }
     
-    func reloadCreditPoints(points: Int) {
-        // TODO: ...
+    func reloadCreditPoints(points: Double) {
+        self.creditBalance += points
     }
     
     func searchServices(keyword: String) {

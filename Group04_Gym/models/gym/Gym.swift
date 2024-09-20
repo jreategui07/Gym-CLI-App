@@ -17,10 +17,6 @@ class Gym {
         return members.first(where: { $0.id == memberId })
     }
     
-    func createMember(_ member: GymMember) {
-        members.append(member)
-    }
-    
     func listAllMembers() {
         if members.isEmpty {
             print("There are no registered members.")
@@ -50,10 +46,6 @@ class Gym {
     
     func findService(serviceId: String) -> Service? {
         return services.first(where: { $0.id == serviceId })
-    }
-    
-    func createwService(_ service: Service) {
-        services.append(service)
     }
     
     func listAllServices() {

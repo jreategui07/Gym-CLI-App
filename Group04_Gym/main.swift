@@ -31,6 +31,9 @@ func main() {
         print("4. Create a gym member account (member)")
         print("5. Reload credit points (member)")
         print("6. Search for service (member)")
+        print("7. Purchase service (member)")
+        print("8. Mark the session as attended (member)")
+        print("9. Cancel the service (member)")
         print("0. Exit")
         print("Enter your choice: ", terminator: "")
         
@@ -129,7 +132,7 @@ func main() {
                     print("Member \(newMember.name) successfully created with ID \(newMember.id).")
                 }
             case 5:
-                print("Enter the member ID: ", terminator: "")
+                print("Enter your member ID: ", terminator: "")
                 guard let memberId = readLine(), !memberId.isEmpty else {
                    print("Invalid Member ID. Please try again.")
                    break
@@ -152,6 +155,26 @@ func main() {
                    break
                 }
                 gym.searchService(serviceNameKeyword)
+            case 7:
+                print("Enter your member ID: ", terminator: "")
+                guard let memberId = readLine(), !memberId.isEmpty else {
+                   print("Invalid Member ID. Please try again.")
+                   break
+                }
+                if let member = gym.findMember(memberId: memberId) {
+                    print("Enter service ID to book: ", terminator: "")
+                    if let serviceId = readLine() {
+                        member.bookService(serviceId: serviceId, gym: gym)
+                    }
+                } else {
+                    print("Member with ID \(memberId) not found.")
+                }
+            case 8:
+                // print("8. Mark the session as attended (member)")
+                print()
+            case 9:
+                // print("9. Cancel the service (member)")
+                print()
             default:
                 print("Invalid option. Please try again.")
             }

@@ -52,7 +52,8 @@ class GymMember {
             creditBalance -= service.price // The cost of the service is deducted from their balance
             bookedServices.append(service) // The service is added to the list of services the member has booked
             print("Service \(service.name) booked successfully for \(name).")
-            service.showReceipt(serviceType: "Booked")
+            service.showReceipt(serviceStatus: "Booked")
+            print("Your new balance is: \(creditBalance)")
         } else {
             print("Service not found.")
         }

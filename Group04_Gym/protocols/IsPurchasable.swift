@@ -5,5 +5,5 @@
 
 protocol IsPurchasable {
     var serviceDescription: String { get }
-    func showReceipt(serviceType: String)
+    func showReceipt(serviceStatus: String)
 }

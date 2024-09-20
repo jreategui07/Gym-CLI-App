@@ -21,6 +21,14 @@ func main() {
     gym.addService(personalTraining1)
     gym.addService(personalTraining2)
     gym.addService(personalTraining3)
+    
+    // Creating test members using hard-coded data
+    let member1 = GymMember(id: UUID().uuidString, name: "Jhon")
+    let member2 = GymMember(id: UUID().uuidString, name: "Jane")
+    let member3 = GymMember(id: UUID().uuidString, name: "Bob")
+    gym.addMember(member1)
+    gym.addMember(member2)
+    gym.addMember(member3)
 
     var shouldContinue = true
     while shouldContinue {
